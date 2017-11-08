@@ -10,10 +10,10 @@
         * @param array matriz
         * @return void
         */
-        public function __construct($m){
-            $this->matriz = $m;
-            $this->linhas = count($m);
-            $this->colunas = count($m['1']);
+        public function __construct($matriz){
+            $this->matriz  = $matriz;
+            $this->linhas  = count($matriz);
+            $this->colunas = count($matriz['1']);
         }
         /**
         * Obtem a solução da matriz pelo metodo de gauss
