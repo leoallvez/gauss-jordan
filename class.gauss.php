@@ -20,7 +20,7 @@
         * @param void
         * @return void
         */
-        public function getGaussSolution(){
+        public function getGaussResult(){
 
             //$this->mostrarMatriz();
             
@@ -55,7 +55,7 @@
                 }
             }
             
-            $this->mostrarMatriz();
+            $this->imprimirMatriz();
         }
         
         /**
@@ -63,19 +63,33 @@
         * @param void
         * @return void
         */
-        private function mostrarMatriz(){
-            echo '<table border="1">';
-            for($i = 1; $i <= $this->linhas; $i++ ){
-                echo '<tr>';
-                for($j = 1; $j <= $this->colunas; $j++ ){
-                    echo '<td>';
-                    echo '<p>'.round($this->matriz[$i][$j], 2).'</p>';
-                    echo '</td>';
+        private function imprimirMatriz() {
+            echo '<table class="table">';
+                echo '<tbody>';
+                    echo '<thead>';
+                        echo '<tr>';
+                            echo '<th>#</th>';
+                            for($j = 1; $j <= $this->colunas; $j++ ) { 
+                                echo '<th>';
+                                    echo ($j != $this->colunas)?"X<sub>$j<?/sub>":"b";
+                                echo '</th>';
+                            }
+                        echo '</tr>';
+                    echo '</thead>';
+
+                for($i = 1; $i <= $this->linhas; $i++ ) {
+                    echo '<tr>';
+                    echo "<th scope='row'>L<sub>".$i."</sub></th>";
+                    for($j = 1; $j <= $this->colunas; $j++ ) {
+                        echo "<td class=".(($j == $this->colunas)?'success':'').">";
+                        //echo '<td>';
+                            echo "<input type='text' class='form-control' value='".round($this->matriz[$i][$j], 3)."' disabled style='background:#FFF'>";
+                        echo '</td>';
+                    }
+                    echo '</tr>';
                 }
-                echo '</tr>';
-            }
+                echo '</tbody>';
             echo '</table>';
-            echo '<style>table{margin-bottom:10px;} table tr td {width:20px;}</style>';
         }
-    }
+    }  
 ?>

@@ -36,14 +36,13 @@
 			<table class="table">
 				<tbody>
 					<thead>
-						
 						<tr>
 						<th>#</th>
-						<?php for($j = 1; $j <= $colunas; $j++ ) { ?>
+							<?php for($j = 1; $j <= $colunas; $j++ ) { ?>
 								<th>
 									<?php echo ($j != $colunas)?"X<sub>$j<?/sub>":"b"?>
 								</th>
-						<?php } ?>
+							<?php } ?>
 						</tr>
 					</thead>
 					<?php for($i = 1; $i <= $linhas; $i++ ) { ?>
@@ -51,7 +50,9 @@
 							<th scope="row"><?= "L<sub>$i</sub>" ?></th>
 							<?php for($j = 1; $j <= $colunas; $j++ ) { ?>
 								<td class="<?php echo ($j == $colunas)?'success':''?>">
-									<input type="number" class="form-control" step="0.1" name="matriz[<?php echo $i ?>][<?php echo $j ?>]" placeholder="<?="L".$i." - C".$j?>" required/>
+									<input type="number" class="form-control" step="0.1" 
+										name="matriz[<?php echo $i ?>][<?php echo $j ?>]" 
+										placeholder="<?="L".$i." - C".$j?>" required/>
 								</td>
 							<?php } ?>
 						</tr>
@@ -63,8 +64,8 @@
 					</tr>
 				</tbody>
 			</table>
-		<input type="hidden" name="linhas" value="<?php echo $linhas ?>"/>
-		<input type="hidden" name="colunas" value="<?php echo $colunas ?>"/>
+			<input type="hidden" name="linhas" value="<?php echo $linhas ?>"/>
+			<input type="hidden" name="colunas" value="<?php echo $colunas ?>"/>
 		</form>
     </div>
     <!--conteúdo-->
